@@ -3,7 +3,7 @@ import json
 import logging
 import random
 import sys
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -61,7 +61,7 @@ class JSONMutator:
                 elif data_type == "number":
                     return self._mutate_number(data)
                 elif data_type == "boolean":
-                    return self._mutate_boolean()
+                    return self._mutate_boolean(data)
                 elif data_type == "null":
                     return None
                 elif data_type == "array":
@@ -186,14 +186,11 @@ class JSONMutator:
         except ZeroDivisionError:
             return data #If the mutation causes a division by zero error, just revert to the original value.
 
-    def _mutate_boolean(self) -> bool:
-        """
-        Mutates a boolean value.
-
-        Returns:
-            The mutated boolean value (always the opposite of the current value).
-        """
-        return not random.choice([True, False]) # Always return a random boolean, not based on the input.
+    def _mutate_boolean(self, data: bool) -> bool:
+        # Flip the actual value. This used to return a random boolean, so
+        # half the time the field came back unchanged and the payload was
+        # not a mutation of the sample at all for that field.
+        return not data
 
 
 def setup_argparse() -> argparse.ArgumentParser:
@@ -268,6 +265,10 @@ def main() -> None:
 
     try:
         mutator = JSONMutator(schema, sample)
+        # Mutated numbers can be inf or nan by design (see _mutate_number).
+        # json.dump writes those as Infinity and NaN, which Python reads
+        # back but strict JSON parsers reject; that is the intended fuzz
+        # payload, not an output bug.
         mutated_payloads = mutator.mutate(args.iterations)
 
         if args.output:
