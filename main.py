@@ -87,6 +87,14 @@ class JSONMutator:
                                     #Keep values as they are for properties not in schema. Could also remove them, depends on the use case.
                                     mutated_object[key] = value
                             return mutated_object
+                        # An object schema with no "properties" used to fall
+                        # off the end of this branch and return None, so a
+                        # whole payload came out as the JSON literal null.
+                        # With nothing declared to mutate against, pass each
+                        # value through the empty-schema path instead.
+                        for key, value in data.items():
+                            mutated_object[key] = self._mutate_recursive({}, value)
+                        return mutated_object
                      else:
                          # Data is not a dict when it should be.  Return an empty dict
                          return {}
@@ -261,6 +269,10 @@ def main() -> None:
         sys.exit(1)
     except Exception as e:
         logging.error(f"Error reading sample file: {e}")
+        sys.exit(1)
+
+    if args.iterations < 1:
+        logging.error(f"--iterations must be at least 1, got {args.iterations}.")
         sys.exit(1)
 
     try:
