@@ -25,6 +25,10 @@ class JSONMutator:
         self.schema = schema
         self.sample = sample
 
+    # Nothing in this class seeds the random module, and the CLI has
+    # no seed flag, so a run cannot be reproduced: the same schema and
+    # sample give different payloads every time, and a payload that
+    # found a bug has to be saved from the output to be seen again.
     def mutate(self, iterations: int = 1) -> List[Dict[str, Any]]:
         """
         Generates a list of mutated JSON payloads based on the schema and sample.
@@ -67,6 +71,10 @@ class JSONMutator:
                 elif data_type == "array":
                     if "items" in schema:
                         if isinstance(data, list):
+                            # Length never changes: items are mutated
+                            # one for one, so empty arrays stay empty
+                            # and no run tests a longer or shorter array
+                            # than the sample carried.
                             mutated_array = []
                             for item in data:
                                 mutated_array.append(self._mutate_recursive(schema["items"], item))
@@ -158,6 +166,10 @@ class JSONMutator:
             lambda i: i + random.randint(1, 10),  # Add a small random number
             lambda i: i - random.randint(1, 10),  # Subtract a small random number
             lambda i: i * random.randint(1, 3),  # Multiply by a small random number
+            # The divide guard draws its own randint(1, 3), which can
+            # never be 0, so the else branch is dead and the divisor
+            # actually used is a second, unchecked draw. Harmless here
+            # because the range excludes 0 by construction.
             lambda i: i // random.randint(1, 3) if random.randint(1, 3) != 0 else i,  # Integer divide by small random number
             lambda i: 2**31 - 1,  # Integer overflow
             lambda i: -2**31,  # Integer underflow
