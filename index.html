@@ -1,165 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Dif Jsonmutator: what it is, how it runs, where it stops</title>
-<meta name="description" content="Dif Jsonmutator is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.">
-<style>
-:root {
-  --bg: #f0ead8; --panel: #faf6ea; --ink: #1e342c;
-  --mut: #ffffff;
-  --acc: #b26e28; --acc2: #ac362c;
-  --line: #faf6ea;
-}
-* { box-sizing: border-box; }
-body { margin: 0; background: var(--bg); color: var(--ink);
-  font-family: Georgia, 'Times New Roman', serif; line-height: 1.55; }
-code, pre, .mono { font-family: 'Courier New', monospace; }
-a { color: var(--acc2); }
-.hero { padding: 3rem 6vw 1rem; }
-.hero img.banner { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; }
-.logo { width: 92px; height: 92px; border-radius: 18px;
-  border: 1px solid var(--line); }
-h1 { font-size: 2.4rem; margin: 0.4em 0 0.1em; }
-h2 { border-bottom: 2px solid var(--acc); padding-bottom: 0.2em;
-  margin-top: 2em; }
-.lede { font-size: 1.15rem; max-width: 62ch; }
-main { padding: 0 6vw 3rem; max-width: 1180px; margin: 0 auto; }
-.grid { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
-.card { background: var(--panel); border: 1px solid var(--line);
-  border-radius: 12px; padding: 1rem 1.2rem; }
-.card.pop { animation: rise 0.7s ease both; }
-@keyframes rise { from { opacity: 0; transform: translateY(14px); }
-  to { opacity: 1; transform: none; } }
-pre.code { background: #101014; color: #e8e6df; padding: 1rem 1.2rem;
-  border-radius: 12px; overflow-x: auto; font-size: 0.86rem;
-  border-left: 5px solid var(--acc); }
-table { border-collapse: collapse; width: 100%; }
-td, th { border-bottom: 1px solid var(--line); padding: 0.45rem 0.6rem;
-  text-align: left; }
-.shots { display: grid; gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-.shots img { width: 100%; height: auto; border: 1px solid var(--line);
-  border-radius: 10px; background: #f4f1e8; }
-footer { padding: 2rem 6vw; border-top: 1px solid var(--line);
-  color: var(--mut); }
-.rail { display: flex; gap: 1.2rem; align-items: flex-start; }
-.rail nav { position: sticky; top: 1rem; min-width: 180px; }
-@media (max-width: 760px) { .rail { flex-direction: column; }
-  .rail nav { position: static; } }
-@media (prefers-reduced-motion: reduce) {
-  .card.pop { animation: none; } * { scroll-behavior: auto; } }
-</style>
-</head>
-<body class="layout-poster">
-<!-- This page exists for dif-jsonmutator alone: the layout (poster),
-     the colors, and the type were picked for this project, not
-     shared with the other project pages. The code block below is
-     copied from the file it names, line for line. If it looks
-     plain, that is because the project is plain, and I would
-     rather the page match the project than dress it up. The one
-     thing I will not do here is oversell: what this project does
-     not do is stated on the page, not hidden from it. -->
-<header class="hero">
-  <img class="logo" src="assets/logo.png" alt="Dif Jsonmutator logo">
-  <img class="banner" src="assets/banner.png" alt="">
-  <h1>Dif Jsonmutator</h1>
-  <p class="mono"><a href="https://github.com/ShadowGuard-AI/dif-jsonmutator">github.com/ShadowGuard-AI/dif-jsonmutator</a></p>
-</header>
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8"><title>dif-jsonmutator: Venetian Glassmakers' Island Exile</title>
+<style>@font-face{font-family:Disp;src:url("fonts/BraahOne.ttf")}@font-face{font-family:Text;src:url("fonts/Archivo.ttf")}
+body{background:#f3e9cf;font-family:Text,sans-serif;color:#2a251d;margin:0}main{max-width:920px;margin:0 auto;padding:28px}
+h1,h2,h3{font-family:Disp,serif;color:#17130e;border-bottom:3px solid #e8a91c;padding-bottom:6px}
+section{background:#ead9b8;padding:18px 22px;margin:16px 0;border-top:3px solid #17130e}
+img{max-width:100%}a{color:#264e94}button{background:#2e2822;color:#f3e9cf;border:3px solid #4a3a2e;border-radius:14px 14px 4px 4px;padding:16px 22px;margin:4px;font-family:Disp,serif;position:relative}
+button::after{content:"";display:block;height:3px;background:#e8a91c;margin-top:8px}
+button:hover{color:#e8a91c}button:focus{outline:3px double #f3e9cf;outline-offset:3px}
+.lapis{border-left:8px solid #264e94}.door{float:right;font-size:20px;color:#e8a91c}
+pre{white-space:pre-wrap;font-family:Text,sans-serif}</style></head><body><main>
+<img src="intro-banner.png" alt="Introduction banner: the island at the pause before firing, no name over any lintel">
+<h1>dif-jsonmutator: Venetian Glassmakers' Island Exile</h1>
+<img src="logo.png" alt="Logo"><img src="banner.png" alt="Wordmark banner">
+<img src="scene.svg" alt="Animated scene in three bands">
+<div><button type="button">Fire a Batch</button><button type="button">Ledger the Payloads</button><button type="button">Read the Night Notes</button></div>
+<h3>Nothing Is Delivered For You</h3><h3>Standard Library Only</h3><h3>Length Never Changes</h3><h3>Not Finite, On Purpose</h3><h3>No Seed, No Second Chance</h3>
+<section><h2>Ledger entry one, the errand</h2><p>Give the program a JSON schema file and a JSON sample file, and it hands back mutated copies of the sample, steered by the schema's declared types. It writes them to a file when asked, and to the terminal when not. It delivers them nowhere else: no running program receives them, no address is contacted, no injection is performed by this code. That boundary is printed in this first entry, not saved for a caveat page. The live README's wider focused claim, that the tool injects fuzzed input into running applications and watches behaviour, is not what the code does, and this entry is the correction.</p></section>
+<section><h2>Ledger entry two, the bill of materials</h2><p>Nothing outside the Python standard library is imported. The requirements file is a comment saying exactly that, so there is nothing to install beyond Python 3 itself. Less is genuinely true here, and the ledger states it proudly and plainly.</p></section>
+<section><h2>Ledger entry three, install and invocation</h2><p>The clone line stands as the README prints it, correct, naming ShadowGuard-AI hyphenated: git clone https://github.com/ShadowGuard-AI/dif-jsonmutator. Then the run form: python3 main.py, the schema option with its path, the sample option with its path, and optionally the count and the output. Placeholder file names only. No real schema and no real sample payload appears on this page. A link for reference: <a href="https://github.com/ShadowGuard-AI/dif-jsonmutator">the repository on GitHub</a>.</p></section>
+<section><h2>Ledger entry four, controls in parser order</h2><p>Schema: required, a path to a JSON file. Sample: required, a path to a JSON file. Iterations: a whole number, default 1, and values below 1 are refused with exit 1, a floor the README never mentions. Output: optional, a path; without it, results print. Help stands first in the README list and prints the help message.</p></section>
+<section><h2>Ledger entry five, how a walk through the sample proceeds</h2><p>The mutator descends both documents together. Where the schema declares a type, that type's strategy set governs the value. Where a value sits in an object under a declared property, it follows that property's schema. Keys present in the sample but absent from the schema's properties keep their original values untouched. Keys declared in the schema but absent from the sample are never invented or added. Where an object schema declares no properties at all, each value passes through the untyped path instead. Where the schema names no type, dictionary values are visited one by one and scalar values come back unchanged. An unrecognised type name draws a warning and the original value is returned as it stood.</p></section>
+<section><h2>Ledger entry six, strings, by pattern class only</h2><p>Eight strategies contend, one chosen at random per value: pad the tail with a small run of exclamation marks, force upper case, force lower case, reverse the characters, append a script injection pattern of the kind markup parsers are tested against, append a database tautology pattern of the kind query parsers are tested against, append a null byte, or replace the whole value with a fresh random lowercase string of five to fifteen letters. The classes are named here and no specimen of either injection pattern is printed.</p></section>
+<section><h2>Ledger entry seven, whole numbers</h2><p>Seven strategies: nudge up by one to ten, nudge down by one to ten, scale by one to three, divide with whole number division by one to three, jump to the largest signed 32 bit value, drop to the smallest signed 32 bit value, or set to zero. The boundary pair is the point of the exercise, and this entry says so.</p></section>
+<section class="lapis"><h2>Ledger entry eight, numbers with fractions</h2><p>Seven strategies again: shift up or down by a fraction under one, scale up modestly, divide by a modest factor, or abandon the finite altogether and set positive infinity, negative infinity, or not a number. These three values change what the output is, and the consequence is entered in entry ten, immediately after the small types.</p></section>
+<section><h2>Ledger entry nine, the small types and the array rule</h2><p>A boolean is simply flipped, true to false and false to true, every time. A null stays null. An array keeps its length exactly: its items are mutated one for one against the item schema, an empty array stays empty, and no run ever tests a longer or shorter array than the sample carried. Two harder edges stand beside it: an array type whose schema declares no item schema comes back as an empty list whatever the sample held, and data that is not a list where an array is declared also comes back empty.</p></section>
+<section><h2>Ledger entry ten, output shapes and the strictness warning</h2><p><span class="door">&#9646;</span>To the terminal, each payload prints as its own indented JSON block, one after another. To a file, the whole batch writes as a single JSON array, indented. And the warning, at full size: infinity and not a number are written using the extended spellings Python accepts, which strict JSON parsers reject. That is deliberate fuzz output, and any visitor piping results into a strict consumer needs to know before the first run, not after the first parse error.</p></section>
+<section><h2>Ledger entry eleven, the repeatability gap</h2><p>Nothing seeds the random choice anywhere in the program, and no seed option exists. The same schema and sample produce different payloads on every run, so a payload that provokes something interesting survives only if its output was saved. Reproduction from inputs alone is impossible, and the ledger says that here, in ink, without apology on the tool's behalf.</p></section>
+<section><h2>Final entry, licence</h2><p>The README line, licensed under the terms in LICENSE, stands. Alongside it, the file fact: the repository LICENSE is the MIT License, its holder line joining the public pen name to a shortened form in parentheses and the account handle, the shortened form left exactly as found.</p></section>
+<section><h2>The preserved README record</h2><pre>
+![Banner](banner.png)
 
-<main>
-  <section class="rail">
-    <nav aria-label="on this page">
-      <p class="mono"><a href="#run">Run it</a><br>
-      <a href="#files">The files</a><br>
-      <a href="#sheets">The sheets</a><br>
-      <a href="https://github.com/ShadowGuard-AI/dif-jsonmutator">The repo</a></p>
-    </nav>
-    <div>
-      <p class="lede">Dif Jsonmutator is one of my projects. The README in the repo is short, so this page sticks to what the files themselves show.</p>
-      <div class="grid">
-        <div class="card pop"><h3>What it is</h3>
-          <p>Dif Jsonmutator: 5 files, 328 counted
-          lines across Python 307, Markdown 20, Text 1. One job, done in the
-          open, in files you can read.</p></div>
-        <div class="card pop"><h3>The biggest piece</h3>
-          <p><code>main.py</code> carries the most
-          lines. If the project grows, that file is where the growth
-          lands first, for better or worse.</p></div>
-        <div class="card pop"><h3>The honest gap</h3>
-          <p>No test files yet. That is the honest gap, and the roadmap in the visuals folder says what the first one should cover.</p></div>
-      </div>
-      <section id="run">
-        <h2>Run it</h2>
-        <p>The repo README has the exact commands for this one. The
-        shape is the shape for most of my projects: clone it, read the
-        top file first so you know what will happen, then run it on
-        something you do not mind breaking.</p>
-        <p class="mono">$ git clone https://github.com/ShadowGuard-AI/dif-jsonmutator.git<br>$ cd dif-jsonmutator</p>
-      </section>
-      
-  <section aria-label="real code">
-    <h2>The code, as it sits in the repo</h2>
-    <p>From <code>main.py</code>, line 10 on. I did
-    not tidy it for the page. What you see is what the file has.</p>
-    <pre class="code"><code>
+# dif-JSONMutator
+A command-line tool that takes a JSON schema and a JSON sample as input, and generates a stream of mutated JSON payloads based on the schema. Uses a combination of random value generation within type constraints and guided mutations based on common JSON vulnerabilities (e.g., integer overflows, string injections). - Focused on Dynamically generates and injects fuzzed input into running applications (e.g., web applications, APIs). Focuses on identifying vulnerabilities by observing application behavior under unexpected input conditions. Supports various fuzzing strategies, such as mutation-based and generation-based fuzzing.
 
-class JSONMutator:
-    &quot;&quot;&quot;
-    A class for mutating JSON payloads based on a schema.
-    &quot;&quot;&quot;
+## Install
+`git clone https://github.com/ShadowGuard-AI/dif-jsonmutator`
 
-    def __init__(self, schema: Dict[str, Any], sample: Dict[str, Any]):
-        &quot;&quot;&quot;
-        Initializes the JSONMutator with a schema and a sample JSON payload.
+## Usage
+`python3 main.py --schema SCHEMA.json --sample SAMPLE.json`
 
-        Args:
-            schema: A dictionary representing the JSON schema.
-            sample: A dictionary representing a sample JSON payload.
-        &quot;&quot;&quot;
-        self.schema = schema
-        self.sample = sample
+## Parameters
+- `-h`: Show help message and exit
+- `--schema`: Path to the JSON schema file (required).
+- `--sample`: Path to the JSON sample file (required).
+- `--iterations`: Number of mutated payloads to generate (default: 1).
+- `--output`: Path to the output file to write the mutated payloads. If not specified, outputs to stdout.
 
-    def mutate(self, iterations: int = 1) -&gt; List[Dict[str, Any]]:
-        &quot;&quot;&quot;
-        Generates a list of mutated JSON payloads based on the schema and sample.</code></pre>
-  </section>
-      <section id="files">
-        <h2>The files that matter</h2>
-        <table><tr><th>File</th><th>Lines</th></tr>
-        <tr><td><code>main.py</code></td><td>307</td></tr>
-        <tr><td><code>README.md</code></td><td>20</td></tr>
-        <tr><td><code>requirements.txt</code></td><td>1</td></tr>
-        <tr><td><code>banner.png</code></td><td>0</td></tr>
-        <tr><td><code>logo.png</code></td><td>0</td></tr>
-        </table>
-        <p>Names doing the work: <span class="mono">JSONMutator, setup_argparse, main, __init__, mutate, _mutate_recursive, _mutate_string, _mutate_integer</span>.</p>
-      </section>
-      <section id="sheets">
-        <h2>Drawn by hand</h2>
-        <p>I sketch my projects on notebook paper so I have to
-        understand them well enough to draw them. The full set,
-        with the counts and how they were counted, is the
-        <a href="https://github.com/ShadowGuard-AI/dif-jsonmutator/tree/main/dif-jsonmutator-Visuals">dif-jsonmutator-Visuals</a>
-        folder in the repo. Nothing is drawn over the binder holes.
-        That is a rule, not a style.</p>
-        <div class="shots">
-          <img src="assets/architecture.png" alt="Hand drawn architecture sheet for Dif Jsonmutator">
-          <img src="assets/flowchart.png" alt="Hand drawn flowchart sheet for Dif Jsonmutator">
-          <img src="assets/product-map.png" alt="Hand drawn product map sheet for Dif Jsonmutator">
-        </div>
-      </section>
-    </div>
-  </section>
-</main>
-<footer>
-  <p>Dif Jsonmutator is one of my projects. This page was written
-  from the repo itself on 2026-10-30: the counts are the
-  repo's counts, the code is the repo's code, and the gaps are the
-  repo's gaps.</p>
-</footer>
-</body>
-</html>
+## License
+Licensed under the terms in LICENSE.</pre></section>
+</main></body></html>
